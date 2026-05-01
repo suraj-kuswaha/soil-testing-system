@@ -1,0 +1,4 @@
+N,P,K,temperature,humidity,ph,moisture,label
+90,40,40,25,60,6.5,70,Rice
+60,30,30,20,40,6.5,40,Wheat
+40,20,20,30,70,5.5,80,Maize

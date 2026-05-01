@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SoilSmart - Smart Soil Testing</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS LINK -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="logo">🌱 SoilSmart</div>
+
+        <nav class="nav">
+            <a href="#home">Home</a>
+            <a href="#features">Features</a>
+            <a href="#dashboard">Dashboard</a>
+            <a href="#scanner">Scanner</a>
+            <a href="#" class="btn" onclick="openLogin()">Login</a>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 style="text-shadow: 2px 2px 8px rgba(0,0,0,0.5);">Smart Soil Testing for Better Farming</h1>
+            <p style="text-shadow: 1px 1px 5px rgba(0,0,0,0.5);">Analyze your soil in real-time and get AI-based crop
+                recommendations instantly.</p>
+            <div style="margin-top: 30px;">
+                <a href="#dashboard" class="btn" style="padding: 12px 28px; font-size: 18px; margin-right: 15px;">Test
+                    Soil</a>
+                <a href="#scanner" class="btn"
+                    style="padding: 12px 28px; font-size: 18px; background: transparent; border: 2px solid #ffca28; color: #ffca28; transition: 0.3s;">Scan
+                    Crop</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features" class="features">
+        <h2>Our Features</h2>
+
+        <div class="feature-container">
+
+            <div class="card">
+                <h3>📡 Sensor Data</h3>
+                <p>Collect real-time soil data using smart sensors.</p>
+            </div>
+
+            <div class="card">
+                <h3>🤖 AI Analysis</h3>
+                <p>Machine learning suggests best crops for your soil.</p>
+            </div>
+
+            <div class="card">
+                <h3>📊 Dashboard</h3>
+                <p>View reports and insights in a clean interface.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- DATA PREVIEW -->
+    <section id="dashboard" class="data">
+        <h2>Test Soil & Live Data</h2>
+
+        <!-- Soil Test Form & Result -->
+        <div class="test-and-result-wrapper"
+            style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-bottom: 40px; max-width: 900px; margin-left: auto; margin-right: auto;">
+
+            <!-- Form Side -->
+            <div class="test-form-container"
+                style="flex: 1; min-width: 300px; background: white; padding: 25px; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.08); text-align: left;">
+                <h3 style="margin-bottom: 20px; text-align: center;">Input Soil Parameters</h3>
+                <form id="soilForm" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div>
+                        <label>Nitrogen (N):</label>
+                        <input type="number" id="inputN" required
+                            style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; margin-top: 5px;"
+                            placeholder="e.g. 90">
+                    </div>
+                    <div>
+                        <label>Phosphorus (P):</label>
+                        <input type="number" id="inputP" required
+                            style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; margin-top: 5px;"
+                            placeholder="e.g. 40">
+                    </div>
+                    <div>
+                        <label>Potassium (K):</label>
+                        <input type="number" id="inputK" required
+                            style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; margin-top: 5px;"
+                            placeholder="e.g. 40">
+                    </div>
+                    <div>
+                        <label>Temperature (°C):</label>
+                        <input type="number" step="0.1" id="inputTemp" required
+                            style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; margin-top: 5px;"
+                            placeholder="e.g. 25">
+                    </div>
+                    <div>
+                        <label>Humidity (%):</label>
+                        <input type="number" step="0.1" id="inputHumidity" required
+                            style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; margin-top: 5px;"
+                            placeholder="e.g. 60">
+                    </div>
+                    <div>
+                        <label>pH Level:</label>
+                        <input type="number" step="0.1" id="inputPh" required
+                            style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; margin-top: 5px;"
+                            placeholder="e.g. 6.5">
+                    </div>
+                    <div>
+                        <label>Moisture (%):</label>
+                        <input type="number" step="0.1" id="inputMoisture" required
+                            style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; margin-top: 5px;"
+                            placeholder="e.g. 70">
+                    </div>
+                    <div style="grid-column: span 2; text-align: center; margin-top: 10px;">
+                        <button type="submit" class="btn"
+                            style="border: none; cursor: pointer; padding: 12px 24px; font-size: 16px;">Analyze
+                            Soil</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Result Side -->
+            <div class="result-container"
+                style="flex: 1; min-width: 300px; background: white; padding: 25px; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.08); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+                <h3 style="margin-bottom: 15px;">Analysis Result</h3>
+                <div id="predictionResult" style="font-size: 18px; color: #666; padding: 20px;">
+                    Enter soil data and click "Analyze Soil" to see the recommended crop.
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Featured Crops Suggestion -->
+        <h3 style="margin-top: 50px; margin-bottom: 25px; color: #1b5e20;">Top Featured Crops for Your Region</h3>
+
+        <div
+            style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; max-width: 1000px; margin: 0 auto;">
+
+            <a href="features.html" style="text-decoration: none; color: inherit; display: block;">
+                <div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); width: 250px; text-align: left; transition: 0.3s;"
+                    onmouseover="this.style.transform='translateY(-5px)'"
+                    onmouseout="this.style.transform='translateY(0)'">
+                    <div
+                        style="height: 140px; background: url('https://images.unsplash.com/photo-1599839619722-39751411ea63?w=500&q=80') no-repeat center/cover;">
+                    </div>
+                    <div style="padding: 15px;">
+                        <h4 style="color: #2e7d32; margin-bottom: 8px; font-size: 18px;">🌾 Wheat</h4>
+                        <p style="font-size: 13px; color: #555; margin-bottom: 10px;">Best suited for well-drained loamy
+                            soil with high moisture.</p>
+                        <span style="font-size: 13px; font-weight: bold; color: #ffca28;">Click to read more ➔</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="features.html" style="text-decoration: none; color: inherit; display: block;">
+                <div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); width: 250px; text-align: left; transition: 0.3s;"
+                    onmouseover="this.style.transform='translateY(-5px)'"
+                    onmouseout="this.style.transform='translateY(0)'">
+                    <div
+                        style="height: 140px; background: url('https://images.unsplash.com/photo-1586201375761-83865001e31c?w=500&q=80') no-repeat center/cover;">
+                    </div>
+                    <div style="padding: 15px;">
+                        <h4 style="color: #2e7d32; margin-bottom: 8px; font-size: 18px;">🍚 Rice</h4>
+                        <p style="font-size: 13px; color: #555; margin-bottom: 10px;">Thrives in heavy clay soils with
+                            high water retention.</p>
+                        <span style="font-size: 13px; font-weight: bold; color: #ffca28;">Click to read more ➔</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="features.html" style="text-decoration: none; color: inherit; display: block;">
+                <div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); width: 250px; text-align: left; transition: 0.3s;"
+                    onmouseover="this.style.transform='translateY(-5px)'"
+                    onmouseout="this.style.transform='translateY(0)'">
+                    <div
+                        style="height: 140px; background: url('https://images.unsplash.com/photo-1601314167099-232775bb9a8e?w=500&q=80') no-repeat center/cover;">
+                    </div>
+                    <div style="padding: 15px;">
+                        <h4 style="color: #2e7d32; margin-bottom: 8px; font-size: 18px;">🌽 Maize</h4>
+                        <p style="font-size: 13px; color: #555; margin-bottom: 10px;">Requires deep, fertile soils rich
+                            in organic matter.</p>
+                        <span style="font-size: 13px; font-weight: bold; color: #ffca28;">Click to read more ➔</span>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- AI CROP SCANNER -->
+    <section id="scanner" class="scanner" style="padding: 60px 40px; text-align: center; background: #fff;">
+        <h2>AI Crop Scanner</h2>
+        <p style="margin-bottom: 30px; font-size: 18px; color: #555;">Upload a photo of your crop to instantly identify
+            diseases and get AI solutions.</p>
+
+        <div class="scanner-container"
+            style="max-width: 800px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
+
+            <!-- Upload Section -->
+            <div
+                style="flex: 1; min-width: 300px; padding: 25px; border-radius: 12px; border: 2px dashed #4caf50; background: #fafafa;">
+                <input type="file" id="cropImage" accept="image/*" capture="environment" style="display: none;">
+                <label for="cropImage"
+                    style="display: inline-block; padding: 12px 24px; background: #4caf50; color: white; border-radius: 8px; cursor: pointer; font-size: 16px; margin-bottom: 15px;">
+                    📸 Take Photo / Upload
+                </label>
+                <div id="imagePreviewContainer" style="display: none; margin-top: 15px;">
+                    <img id="imagePreview" src="" alt="Crop Preview"
+                        style="max-width: 100%; max-height: 250px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                    <br>
+                    <button id="scanBtn" class="btn" style="margin-top: 15px; border: none; cursor: pointer;">🔍 Scan &
+                        Analyze</button>
+                </div>
+            </div>
+
+            <!-- Result Section -->
+            <div id="scannerResult"
+                style="flex: 1; min-width: 300px; padding: 25px; border-radius: 12px; background: #e8f5e9; text-align: left; display: none; box-shadow: 0 8px 20px rgba(0,0,0,0.08);">
+                <!-- Populated by JS -->
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer" style="padding: 40px 20px; background: #1b5e20; color: white; text-align: center;">
+        <div class="footer-container"
+            style="max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; gap: 30px; align-items: center;">
+
+            <!-- Social Media Links -->
+            <div class="social-links" style="display: flex; gap: 20px;">
+                <a href="#" style="color: white; text-decoration: none; font-size: 18px; transition: 0.3s;"
+                    onmouseover="this.style.color='#ffca28'" onmouseout="this.style.color='white'">📘 Facebook</a>
+                <a href="#" style="color: white; text-decoration: none; font-size: 18px; transition: 0.3s;"
+                    onmouseover="this.style.color='#ffca28'" onmouseout="this.style.color='white'">🐦 Twitter</a>
+                <a href="#" style="color: white; text-decoration: none; font-size: 18px; transition: 0.3s;"
+                    onmouseover="this.style.color='#ffca28'" onmouseout="this.style.color='white'">📸 Instagram</a>
+                <a href="#" style="color: white; text-decoration: none; font-size: 18px; transition: 0.3s;"
+                    onmouseover="this.style.color='#ffca28'" onmouseout="this.style.color='white'">💼 LinkedIn</a>
+            </div>
+
+            <!-- Analysts Images Space -->
+            <div>
+                <h4 style="margin-bottom: 15px; color: #a5d6a7;">Our Analysts</h4>
+                <div class="analyst-images" style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                    <!-- 5 Image placeholders -->
+                    <div
+                        style="width: 70px; height: 70px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px dashed #a5d6a7; overflow: hidden;">
+                        <img src="" alt="Analyst 1"
+                            style="width: 100%; height: 100%; object-fit: cover; display: none;">
+                        <span style="font-size: 11px; color: #ccc;">Img 1</span>
+                    </div>
+                    <div
+                        style="width: 70px; height: 70px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px dashed #a5d6a7; overflow: hidden;">
+                        <img src="" alt="Analyst 2"
+                            style="width: 100%; height: 100%; object-fit: cover; display: none;">
+                        <span style="font-size: 11px; color: #ccc;">Img 2</span>
+                    </div>
+                    <div
+                        style="width: 70px; height: 70px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px dashed #a5d6a7; overflow: hidden;">
+                        <img src="" alt="Analyst 3"
+                            style="width: 100%; height: 100%; object-fit: cover; display: none;">
+                        <span style="font-size: 11px; color: #ccc;">Img 3</span>
+                    </div>
+                    <div
+                        style="width: 70px; height: 70px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px dashed #a5d6a7; overflow: hidden;">
+                        <img src="" alt="Analyst 4"
+                            style="width: 100%; height: 100%; object-fit: cover; display: none;">
+                        <span style="font-size: 11px; color: #ccc;">Img 4</span>
+                    </div>
+                    <div
+                        style="width: 70px; height: 70px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px dashed #a5d6a7; overflow: hidden;">
+                        <img src="" alt="Analyst 5"
+                            style="width: 100%; height: 100%; object-fit: cover; display: none;">
+                        <span style="font-size: 11px; color: #ccc;">Img 5</span>
+                    </div>
+                </div>
+                <p style="font-size: 12px; color: #a5d6a7; margin-top: 10px;">Update src="" to set images</p>
+            </div>
+
+            <!-- Copyright -->
+            <div style="border-top: 1px solid rgba(255,255,255,0.2); padding-top: 20px; width: 100%;">
+                <p>© 2026 SoilSmart | Smart Agriculture System</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!--java script -->
+
+    <script>
+        // Submit Form to Analyze Soil
+        document.getElementById('soilForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const data = {
+                N: parseFloat(document.getElementById('inputN').value),
+                P: parseFloat(document.getElementById('inputP').value),
+                K: parseFloat(document.getElementById('inputK').value),
+                temperature: parseFloat(document.getElementById('inputTemp').value),
+                humidity: parseFloat(document.getElementById('inputHumidity').value),
+                ph: parseFloat(document.getElementById('inputPh').value),
+                moisture: parseFloat(document.getElementById('inputMoisture').value)
+            };
+
+            try {
+                const response = await fetch('http://127.0.0.1:5000/sensor-data', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+                const result = await response.json();
+                const resultDiv = document.getElementById('predictionResult');
+
+                if (result.status === 'success') {
+                    resultDiv.innerHTML = `<div style="color: #2e7d32; font-size: 20px;">✅ Analysis Complete!</div>
+                                       <div style="margin-top: 15px; font-size: 16px; color: #444;">Recommended Crop:</div>
+                                       <div style="font-size: 32px; font-weight: bold; color: #1b5e20; margin-top: 5px;">${result.crop} 🌱</div>`;
+                    // (Dashboard removed, no need to update live data)
+                } else {
+                    resultDiv.innerHTML = `<div style="color: #d32f2f;">❌ Error: ${result.message}</div>`;
+                }
+            } catch (error) {
+                const resultDiv = document.getElementById('predictionResult');
+                resultDiv.innerHTML = `<div style="color: #d32f2f;">❌ Failed to connect to the backend. Make sure app.py is running.</div>`;
+                console.error(error);
+            }
+        });
+
+
+
+
+
+        // AI Crop Scanner Logic
+        const cropImageInput = document.getElementById('cropImage');
+        const imagePreviewContainer = document.getElementById('imagePreviewContainer');
+        const imagePreview = document.getElementById('imagePreview');
+        const scanBtn = document.getElementById('scanBtn');
+        const scannerResult = document.getElementById('scannerResult');
+
+        cropImageInput.addEventListener('change', function () {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    imagePreview.src = e.target.result;
+                    imagePreviewContainer.style.display = 'block';
+                    scannerResult.style.display = 'none'; // hide previous results
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+
+        scanBtn.addEventListener('click', async function () {
+            const file = cropImageInput.files[0];
+            if (!file) return;
+
+            scanBtn.innerText = '⏳ Analyzing...';
+            scanBtn.disabled = true;
+
+            const formData = new FormData();
+            formData.append('image', file);
+
+            try {
+                const response = await fetch('http://127.0.0.1:5000/analyze-crop', {
+                    method: 'POST',
+                    body: formData
+                });
+                const result = await response.json();
+
+                if (result.status === 'success') {
+                    scannerResult.style.display = 'block';
+                    scannerResult.innerHTML = `
+                    <h3 style="color: #2e7d32; margin-bottom: 15px;">📋 Analysis Complete</h3>
+                    <p><strong>Identified Crop:</strong> ${result.data.crop}</p>
+                    <p><strong>Diagnosis:</strong> <span style="color: #d32f2f;">${result.data.diagnosis}</span></p>
+                    <div style="margin-top: 15px; padding: 15px; background: #fff; border-left: 4px solid #4caf50; border-radius: 4px;">
+                        <p style="margin: 0; color: #333;"><strong>AI Solution:</strong> ${result.data.solution}</p>
+                    </div>
+                `;
+                } else {
+                    alert('Error analyzing crop: ' + result.message);
+                }
+            } catch (error) {
+                alert('Failed to connect to backend.');
+                console.error(error);
+            } finally {
+                scanBtn.innerText = '🔍 Scan & Analyze';
+                scanBtn.disabled = false;
+            }
+        });
+    </script>
+    <!-- LOGIN MODAL START -->
+    <div id="loginModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; z-index:9999;">
+
+        <!-- Overlay -->
+        <div onclick="closeLogin()" style="position:absolute; width:100%; height:100%; background:rgba(0,0,0,0.6);">
+        </div>
+
+        <!-- Login Box -->
+        <div style="
+        position:relative;
+        width:350px;
+        margin:100px auto;
+        background:white;
+        padding:30px;
+        border-radius:12px;
+        box-shadow:0 10px 30px rgba(0,0,0,0.2);
+        text-align:center;
+        z-index:10000;
+    ">
+
+            <h2 style="margin-bottom:10px;">🌱 AgriTech Login</h2>
+            <p style="color:#666; margin-bottom:20px;">Access your dashboard</p>
+
+            <input type="text" id="loginEmail" placeholder="Email"
+                style="width:100%; padding:10px; margin-bottom:10px; border:1px solid #ccc; border-radius:6px;">
+
+            <input type="password" id="loginPassword" placeholder="Password"
+                style="width:100%; padding:10px; margin-bottom:20px; border:1px solid #ccc; border-radius:6px;">
+
+            <button onclick="loginUser()" style="
+            width:100%;
+            padding:12px;
+            background:#2e7d32;
+            color:white;
+            border:none;
+            border-radius:6px;
+            cursor:pointer;
+            font-size:16px;
+        ">
+                Login
+            </button>
+
+            <p id="loginError" style="color:red; margin-top:10px; display:none;"></p>
+
+        </div>
+    </div>
+    <!-- LOGIN MODAL END -->
+
+
+    <script>
+        /* ===== LOGIN OPEN/CLOSE ===== */
+        function openLogin() {
+            document.getElementById("loginModal").style.display = "block";
+        }
+
+        function closeLogin() {
+            document.getElementById("loginModal").style.display = "none";
+        }
+
+        /* ===== LOGIN LOGIC (FRONTEND DEMO) ===== */
+        function loginUser() {
+            const email = document.getElementById("loginEmail").value;
+            const password = document.getElementById("loginPassword").value;
+            const error = document.getElementById("loginError");
+
+            // Demo credentials (same as your old code)
+            if (email === "surajkumar@gmail.com" && password === "8521") {
+                alert("✅ Login Successful!");
+                closeLogin();
+
+                // Optional: scroll to dashboard
+                document.getElementById("dashboard").scrollIntoView({ behavior: "smooth" });
+
+            } else {
+                error.style.display = "block";
+                error.innerText = "❌ Invalid Email or Password";
+            }
+        }
+    </script>
+</body>
+
+</html>
